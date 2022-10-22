@@ -1,0 +1,28 @@
+include "biblio-standoc.rnc" {
+
+DocumentType = "standard"
+
+editorialgroup = element editorialgroup {
+      committee+
+    }
+
+BibDataExtensionType =
+  attribute schema-version { text }?,
+    doctype?, docsubtype?, editorialgroup?, ics*, commentperiod?
+
+}
+
+DocRelationType |= "obsoletedBy" | "supersedes" | "supersededBy"
+
+BibliographicDateType |= "abandoned" | "superseded"
+
+commentperiod = element commentperiod {
+element from { ISO8601Date },
+element to { ISO8601Date }?,
+element extended { ISO8601Date }?
+}
+
+committee = element committee {
+  text
+}
+
