@@ -6,9 +6,9 @@ editorialgroup = element editorialgroup {
       committee+
     }
 
-BibDataExtensionType =
-  attribute schema-version { text }?,
-    doctype?, docsubtype?, flavor, editorialgroup?, ics*, commentperiod?
+BibDataExtensionType &=
+    ## The period during which comments may be submitted to the NIST document draft
+    commentperiod?
 
 }
 
@@ -16,9 +16,14 @@ DocRelationType |= "obsoletedBy" | "supersedes" | "supersededBy"
 
 BibliographicDateType |= "abandoned" | "superseded"
 
+## The period during which comments may be submitted to the NIST document draft
 commentperiod = element commentperiod {
+## The beginning of the period during which comments may be submitted to the NIST document draft
 element from { ISO8601Date },
+## The end of the period during which comments may be submitted to the NIST document draft. 
+## The end of the period may change, and may be left open-ended (omitted)
 element to { ISO8601Date }?,
+##  The date on which the during which comments may be submitted to the NIST document draft was extended
 element extended { ISO8601Date }?
 }
 
