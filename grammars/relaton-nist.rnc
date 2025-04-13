@@ -6,11 +6,11 @@ editorialgroup = element editorialgroup {
       committee+
     }
 
+}
+
 BibDataExtensionType &=
     ## The period during which comments may be submitted to the NIST document draft
     commentperiod?
-
-}
 
 DocRelationType |= "obsoletedBy" | "supersedes" | "supersededBy"
 
